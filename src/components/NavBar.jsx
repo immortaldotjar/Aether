@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { FiMenu, FiX, FiLogOut } from 'react-icons/fi'
-
+import logo from "../assets/logo.png"
 import Button from './Button'
 import { useAuth } from '../context/AuthContext'
 
@@ -27,7 +27,7 @@ const Navbar = () => {
         <header className="sticky top-0 z-50 border-b border-outline-variant bg-surface-container-lowest">
             <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-gutter sm:px-page-padding">
                 <Link to="/" className="flex items-center gap-2 text-on-surface">
-                    <span className="text-panel-title tracking-tight">Aether</span>
+                    <span className="text-panel-title tracking-tight flex gap-2 items-center"> <img src={logo} width={30}/> Aether</span>
                 </Link>
 
                 <nav className="hidden items-center gap-1 md:flex">
