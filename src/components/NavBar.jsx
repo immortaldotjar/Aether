@@ -7,10 +7,9 @@ import Button from './Button'
 import { useAuth } from '../context/AuthContext'
 
 const LINKS = [
-    { to: '/', label: 'Overview' },
-    { to: '/dashboard', label: 'Mission Control' },
-    { to: '/dashboard', label: 'Telemetry' },
-    { to: '/dashboard', label: 'Analytics' },
+    { to: '/', label: 'Overview', end: true },
+    { to: '/dashboard', label: 'Mission Control', end: true },
+    { to: '/dashboard/telemetry', label: 'Telemetry' },
 ]
 
 const Navbar = () => {
@@ -28,7 +27,6 @@ const Navbar = () => {
         <header className="sticky top-0 z-50 border-b border-outline-variant bg-surface-container-lowest">
             <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-gutter sm:px-page-padding">
                 <Link to="/" className="flex items-center gap-2 text-on-surface">
-
                     <span className="text-panel-title tracking-tight">Aether</span>
                 </Link>
 
@@ -37,6 +35,7 @@ const Navbar = () => {
                         <NavLink
                             key={link.label}
                             to={link.to}
+                            end={link.end}
                             className={({ isActive }) =>
                                 `rounded-base px-3 py-2 text-label transition-colors ${isActive
                                     ? 'text-on-surface'
@@ -92,6 +91,7 @@ const Navbar = () => {
                                 <NavLink
                                     key={link.label}
                                     to={link.to}
+                                    end={link.end}
                                     onClick={() => setOpen(false)}
                                     className="rounded-base px-3 py-2 text-label text-on-surface-variant hover:bg-surface-container hover:text-on-surface"
                                 >

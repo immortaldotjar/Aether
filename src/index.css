@@ -1,89 +1,66 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---- color: surfaces ---- */
-  --color-background: #080616;
-  --color-on-background: #d8e3fb;
-  --color-surface: #080616;
-  --color-surface-bright: #162c8d;
-  --color-surface-container-lowest: #06040f;
-  --color-surface-container-low: #0e0d2b;
-  --color-surface-container: #1a1953;
-  --color-surface-container-high: #192069;
-  --color-surface-container-highest: #182679;
-  --color-surface-variant: #182679;
-  --color-on-surface: #d8e3fb;
-  --color-on-surface-variant: #9ea5bb;
-  --color-outline: #64677b;
-  --color-outline-variant: #3a3b4d;
+  /* ---- color: flat surfaces, no gradients ---- */
+  --color-background: #0b0b0a;
+  --color-surface-container-lowest: #0b0b0a;
+  --color-surface-container-low: #111110;
+  --color-surface-container: #141413;
+  --color-on-surface: #f5f5f3;
+  --color-on-surface-variant: #9a9a96;
+  --color-outline: #55554f;
+  --color-outline-variant: #2a2a27;
 
-  /* ---- color: primary (brand indigo) ---- */
-  --color-primary: #2f2fe4;
-  --color-on-primary: #eeeefd;
-  --color-primary-container: #162e93;
-  --color-on-primary-container: #bec4e1;
+  /* ---- color: one accent ---- */
+  --color-primary: #002fa7;
+  --color-on-primary: #f5f5f3;
 
-  /* ---- color: secondary (success / nominal) ---- */
-  --color-secondary: #66df75;
-  --color-on-secondary: #00390f;
-  --color-secondary-container: #27a644;
-  --color-on-secondary-container: #00320c;
+  /* ---- color: form validation only ---- */
+  --color-error: #e5484d;
 
-  /* ---- color: tertiary (warning) ---- */
-  --color-tertiary: #fabd00;
-  --color-on-tertiary: #3f2e00;
-  --color-tertiary-container: #725400;
-  --color-on-tertiary-container: #ffc842;
-
-  /* ---- color: error / critical ---- */
-  --color-error: #ffb4ab;
-  --color-on-error: #690005;
-  --color-error-container: #93000a;
-  --color-on-error-container: #ffdad6;
-
-  /* ---- type ---- */
+  /* ---- type: one real font ---- */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --text-hero-title: 64px;
-  --text-hero-title--line-height: 1.1;
+  --text-hero-title: 56px;
+  --text-hero-title--line-height: 1.15;
   --text-hero-title--letter-spacing: -0.02em;
   --text-hero-title--font-weight: 700;
 
-  --text-page-title: 36px;
-  --text-page-title--line-height: 1.2;
+  --text-page-title: 34px;
+  --text-page-title--line-height: 1.25;
   --text-page-title--letter-spacing: -0.01em;
   --text-page-title--font-weight: 700;
 
-  --text-page-title-mobile: 28px;
-  --text-page-title-mobile--line-height: 1.2;
+  --text-page-title-mobile: 27px;
+  --text-page-title-mobile--line-height: 1.25;
   --text-page-title-mobile--font-weight: 700;
 
-  --text-section-title: 24px;
-  --text-section-title--line-height: 1.3;
+  --text-section-title: 22px;
+  --text-section-title--line-height: 1.35;
   --text-section-title--font-weight: 600;
 
-  --text-panel-title: 18px;
+  --text-panel-title: 17px;
   --text-panel-title--line-height: 1.4;
   --text-panel-title--font-weight: 600;
 
   --text-body: 16px;
-  --text-body--line-height: 1.6;
+  --text-body--line-height: 1.65;
   --text-body--font-weight: 400;
 
   --text-label: 14px;
-  --text-label--line-height: 1.2;
+  --text-label--line-height: 1.4;
   --text-label--font-weight: 500;
 
   --text-caption: 13px;
-  --text-caption--line-height: 1.2;
+  --text-caption--line-height: 1.5;
   --text-caption--font-weight: 400;
 
   /* ---- shape ---- */
   --radius-sm: 0.25rem;
   --radius-base: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
   --radius-full: 9999px;
 
   /* ---- layout spacing ---- */
@@ -106,11 +83,12 @@
     background-color: var(--color-background);
     color: var(--color-on-surface);
     font-family: var(--font-sans);
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
   ::selection {
-    background-color: var(--color-primary-container);
-    color: var(--color-on-primary-container);
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
   }
   ::-webkit-scrollbar {
     width: 10px;
@@ -119,17 +97,7 @@
     background: var(--color-surface-container-lowest);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-surface-container-high);
+    background: var(--color-surface-container);
     border-radius: var(--radius-full);
-  }
-}
-
-@layer utilities {
-  /* fine blueprint-style grid, used once behind the hero */
-  .bg-grid {
-    background-image:
-      linear-gradient(var(--color-outline-variant) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-outline-variant) 1px, transparent 1px);
-    background-size: 64px 64px;
   }
 }

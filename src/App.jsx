@@ -5,7 +5,9 @@ import Footer from './components/Footer'
 import AuthLayout from './components/AuthComps/AuthLayout'
 import Login from './components/AuthComps/Login'
 import Signup from './components/AuthComps/Signup'
-import Dashboard from './pages/Dashboard'
+import DashboardLayout from './pages/DashboardLayout'
+import MissionControl from './pages/MissionControl'
+import Telemetry from './pages/Telemetry'
 import Home from './pages/Home'
 
 const App = () => {
@@ -19,7 +21,10 @@ const App = () => {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
           </Route>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route index element={<MissionControl />} />
+            <Route path="telemetry" element={<Telemetry />} />
+          </Route>
         </Routes>
       </main>
       <Footer />

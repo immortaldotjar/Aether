@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useTelemetry } from '../hooks/useTelemetry'
 import MissionHeader from '../components/DashboardComps/MissionHeader'
@@ -9,21 +7,12 @@ import OrbitalParameters from '../components/DashboardComps/OrbitalParameters'
 import SensorStream from '../components/DashboardComps/SensorStream'
 import GroundTrack from '../components/DashboardComps/GroundTrack'
 
-const Dashboard = () => {
-    const { user, ready } = useAuth()
-    const navigate = useNavigate()
+const Telemetry = () => {
+    const { user } = useAuth()
     const { state, history } = useTelemetry()
 
-    useEffect(() => {
-        if (ready && !user) {
-            navigate('/auth/login', { replace: true })
-        }
-    }, [ready, user, navigate])
-
-    if (!ready || !user) return null
-
     return (
-        <div className="mx-auto max-w-[1440px] px-gutter py-panel-gap sm:px-page-padding">
+        <div>
             <MissionHeader title="Telemetry" subtitle={`Welcome back, ${user.name}`} />
 
             <div className="mt-panel-gap grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
@@ -48,4 +37,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Telemetry
